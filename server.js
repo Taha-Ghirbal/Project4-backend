@@ -8,6 +8,7 @@ const logger = require('morgan');
 const authRouter = require('./controllers/auth.routes');
 const carRouter = require('./controllers/car.routes');
 const bookingRouter = require('./controllers/booking.routes');
+const indexRouter = require('./controllers/index.routes');
 const verifyToken = require('./middleware/verify-token');
 
 
@@ -25,6 +26,7 @@ app.use(logger('dev'));
 app.use('/auth', authRouter);
 app.use('/cars', carRouter);
 app.use('/bookings', bookingRouter);
+app.use('/', indexRouter);
 
 app.listen(3000, () => {
   console.log('The express app is ready!');
